@@ -50,15 +50,42 @@ function displayCurrentWeather(weather, city){
 }
 
 function displayForecast(forecast){
-    $("#day-one").html(`<p>Temp: ${forecast[1].temp.day}</p>
+    var dayOne = moment().add(1, "d").format("L")
+    var dayTwo = moment().add(2, "d").format("L")
+    var dayThree = moment().add(3, "d").format("L")
+    var dayFour = moment().add(4, "d").format("L")
+    var dayFive = moment().add(5, "d").format("L")
+    // day 1 forecast
+    $("#day-one").html(`<h3>${dayOne}</h3>
+    <img src="http://openweathermap.org/img/wn/${forecast[1].weather[0].icon}.png" alt="image of weather condition">
+    <p>Temp: ${forecast[1].temp.day}</p>
     <p>Wind: ${forecast[1].wind_speed}</p>
     <p>Humidity: ${forecast[1].humidity}%</p>`)
-    // for (var i=0; i<5; i++) {
-    //     var div = document.createElement("div")
-    //     div.insertAdjacentHTML("afterbegin", `<p>Temp: ${forecast[1].temp.day}</p>`) 
-    //     $("#weather-forecast").append(div)
-    //     console.log(div[3])
-    // }
+    // day 2 forecast
+    $("#day-two").html(`<h3>${dayTwo}</h3>
+    <img src="http://openweathermap.org/img/wn/${forecast[2].weather[0].icon}.png" alt="image of weather condition">
+    <p>Temp: ${forecast[2].temp.day}</p>
+    <p>Wind: ${forecast[2].wind_speed}</p>
+    <p>Humidity: ${forecast[2].humidity}%</p>`)
+    // day 3 forecast
+    $("#day-three").html(`<h3>${dayThree}</h3>
+    <img src="http://openweathermap.org/img/wn/${forecast[3].weather[0].icon}.png" alt="image of weather condition">
+    <p>Temp: ${forecast[3].temp.day}</p>
+    <p>Wind: ${forecast[3].wind_speed}</p>
+    <p>Humidity: ${forecast[3].humidity}%</p>`)
+    // day 4 forecast
+    $("#day-four").html(`<h3>${dayFour}</h3>
+    <img src="http://openweathermap.org/img/wn/${forecast[4].weather[0].icon}.png" alt="image of weather condition">
+    <p>Temp: ${forecast[4].temp.day}</p>
+    <p>Wind: ${forecast[4].wind_speed}</p>
+    <p>Humidity: ${forecast[4].humidity}%</p>`)
+    // day 5 forecast
+    $("#day-five").html(`<h3>${dayFive}</h3>
+    <img src="http://openweathermap.org/img/wn/${forecast[5].weather[0].icon}.png" alt="image of weather condition">
+    <p>Temp: ${forecast[5].temp.day}</p>
+    <p>Wind: ${forecast[5].wind_speed}</p>
+    <p>Humidity: ${forecast[5].humidity}%</p>`)
+    
 
 }
 
