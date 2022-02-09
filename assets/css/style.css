@@ -1,0 +1,10 @@
+
+.header-text {
+    text-align: center;
+    background-image: linear-gradient(#01FDF6, #CBBAED);
+    padding: 10px;
+    color: #1B1F3B;
+}
+.card {
+    background-color: #CBBAED;
+}

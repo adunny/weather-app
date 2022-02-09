@@ -11,30 +11,35 @@
 
 <body>
     <header>
-        <h1>Weather Dashboard</h1>
+        <h1 class="header-text">Weather Dashboard</h1>
     </header>
 
     <main>
-        <div>
-            <form>
+       <div class="container">
+        <div class="row">
+            <form class="col-3">
                 <label for="city">Search For A City:</label><br>
                 <input  id="city-search" type="text" name="cityname">
                 <button id="search-btn" type="button">Search</button>
             </form>
+        
+            <div id="weather-display" class="col-9">
+                <h2 id="city-name"></h2>
+                <p id="temp"></p>
+                <p id="wind"></p>
+                <p id="humidity"></p>
+                <p id="uv-index"></p>
+            </div>
+         </div>
+       </div> 
+       <div class="container">
+        <div id="weather-forecast" class="row justify-content-end">
+            <div id="day-one" class="col-2 card"></div>
+            <div id="day-two" class="col-2 card"></div>
+            <div id="day-three" class="col-2 card"></div>
+            <div id="day-four" class="col-2 card"></div>
+            <div id="day-five" class="col-2 card"></div>
         </div>
-        <div id="weather-display">
-            <h2 id="city-name"></h2>
-            <p id="temp"></p>
-            <p id="wind"></p>
-            <p id="humidity"></p>
-            <p id="uv-index"></p>
-        </div>
-        <div id="weather-forecast">
-            <div id="day-one"></div>
-            <div id="day-two"></div>
-            <div id="day-three"></div>
-            <div id="day-four"></div>
-            <div id="day-five"></div>
         </div>
     </main>
 

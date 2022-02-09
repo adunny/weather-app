@@ -37,8 +37,8 @@ function getWeather(lat, lon){
 };
 
 function displayCurrentWeather(weather, city){
-    // $(`<h2>${weather.temp}<h2>`).appendTo(currentWeatherEl)
     var currentDate = moment().format("L")
+    currentWeatherEl.addClass("border border-dark")
     $("#city-name").text(`${city} ${currentDate}`)
     $("#temp").text(`Temp: ${weather.temp}°F`)
     $("#wind").text(`Wind: ${weather.wind_speed} MPH`)
@@ -89,5 +89,3 @@ function displayForecast(forecast){
 
 }
 
-// getWeather();
-// getLocation();
