@@ -9,15 +9,22 @@ buttonEl.click(function(){
 })
 
 function getLocation() {
-    var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=f322e7b22806ceea9cd077e18e4087da"
+    var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=f322e7b22806ceea9cd077e18e4087da"
     fetch(apiUrl).then(function(response){
         if (response.ok) {
             response.json().then(function(data){
+                
                 var lat = data[0].lat
                 var lon = data[0].lon
+                // if(lat === undefined && lon === undefined){
+                //     alert("enter a valid city")
+                // }
                 getWeather(lat, lon);
+                
             })
         }
+    }).catch(function(error){
+        console.log(error)
     })
 
 }
@@ -55,36 +62,38 @@ function displayForecast(forecast){
     var dayThree = moment().add(3, "d").format("L")
     var dayFour = moment().add(4, "d").format("L")
     var dayFive = moment().add(5, "d").format("L")
+    $("#forecast-header").text("5 Day Forecast");
+    
     // day 1 forecast
     $("#day-one").html(`<h3>${dayOne}</h3>
-    <img src="http://openweathermap.org/img/wn/${forecast[1].weather[0].icon}.png" alt="image of weather condition">
-    <p>Temp: ${forecast[1].temp.day}</p>
-    <p>Wind: ${forecast[1].wind_speed}</p>
-    <p>Humidity: ${forecast[1].humidity}%</p>`)
+    <img src="https://openweathermap.org/img/wn/${forecast[1].weather[0].icon}.png" alt="image of weather condition">
+    <p>Temp: ${forecast[1].temp.day}</br></br>
+    Wind: ${forecast[1].wind_speed}</br></br>
+    Humidity: ${forecast[1].humidity}%</p>`).addClass("rounded forecast-card");
     // day 2 forecast
     $("#day-two").html(`<h3>${dayTwo}</h3>
     <img src="http://openweathermap.org/img/wn/${forecast[2].weather[0].icon}.png" alt="image of weather condition">
     <p>Temp: ${forecast[2].temp.day}</p>
     <p>Wind: ${forecast[2].wind_speed}</p>
-    <p>Humidity: ${forecast[2].humidity}%</p>`)
+    <p>Humidity: ${forecast[2].humidity}%</p>`).addClass("rounded forecast-card");
     // day 3 forecast
     $("#day-three").html(`<h3>${dayThree}</h3>
     <img src="http://openweathermap.org/img/wn/${forecast[3].weather[0].icon}.png" alt="image of weather condition">
     <p>Temp: ${forecast[3].temp.day}</p>
     <p>Wind: ${forecast[3].wind_speed}</p>
-    <p>Humidity: ${forecast[3].humidity}%</p>`)
+    <p>Humidity: ${forecast[3].humidity}%</p>`).addClass("rounded forecast-card");
     // day 4 forecast
     $("#day-four").html(`<h3>${dayFour}</h3>
     <img src="http://openweathermap.org/img/wn/${forecast[4].weather[0].icon}.png" alt="image of weather condition">
     <p>Temp: ${forecast[4].temp.day}</p>
     <p>Wind: ${forecast[4].wind_speed}</p>
-    <p>Humidity: ${forecast[4].humidity}%</p>`)
+    <p>Humidity: ${forecast[4].humidity}%</p>`).addClass("rounded forecast-card");
     // day 5 forecast
     $("#day-five").html(`<h3>${dayFive}</h3>
     <img src="http://openweathermap.org/img/wn/${forecast[5].weather[0].icon}.png" alt="image of weather condition">
     <p>Temp: ${forecast[5].temp.day}</p>
     <p>Wind: ${forecast[5].wind_speed}</p>
-    <p>Humidity: ${forecast[5].humidity}%</p>`)
+    <p>Humidity: ${forecast[5].humidity}%</p>`).addClass("rounded forecast-card");
     
 
 }

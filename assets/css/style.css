@@ -5,6 +5,15 @@
     padding: 10px;
     color: #1B1F3B;
 }
-.card {
+.forecast-card {
     background-color: #CBBAED;
+    margin: 5px;
+    
+}
+#forecast-header {
+    padding-left: 11rem;
+}
+
+.forecast-container {
+    padding-left: 12.4rem;
 }
